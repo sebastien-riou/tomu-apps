@@ -1,0 +1,3 @@
+#source me
+export PATH=$PATH:/Applications/ARM/bin
+arm-none-eabi-gcc --version
