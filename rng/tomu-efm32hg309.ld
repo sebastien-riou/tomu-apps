@@ -22,10 +22,12 @@
 /* Define memory regions. */
 MEMORY
 {
-    rom (rx) : ORIGIN = 0x00004000, LENGTH = 0xC000
-    ram (rwx)  : ORIGIN = 0x20000000, LENGTH = 0x1800
+    rom  (rx)  : ORIGIN = 0x00004000, LENGTH = 0xC000
+    ram  (rwx) : ORIGIN = 0x20000000, LENGTH = 8k - 32
+	seed (rwx) : ORIGIN = 0x20001FE0, LENGTH = 32
 }
-
+__seed_start__           = ORIGIN(seed);
+__seed_size__            = LENGTH(seed);
 SECTIONS {
 	.text : {
 		KEEP(SORT(*)(.vectors))
